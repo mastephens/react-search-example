@@ -19,7 +19,7 @@ class App extends Component {
             <div className="navbar-collapse collapse">
               <ul className="nav navbar-nav">
                 <li className="active"><a href="#"> Home</a></li>
-                <li><a href="www.github.com"> Github</a></li>
+                <li><a href="https://github.com/mastephens/react-search-example"> Github</a></li>
               </ul>
             </div>
           </div>

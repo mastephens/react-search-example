@@ -1,6 +1,6 @@
 import React from 'react';
-import Client from './Client';
-import {debounce} from 'throttle-debounce';
+import Client from './Client'
+import sortBy from 'lodash.sortby';
 
 class LibrarySearch extends React.Component {
 
@@ -22,12 +22,14 @@ class LibrarySearch extends React.Component {
               librariesMatchingSearch: [],
               librariesMatchingSearchCount: 0,
           });
-      } else {
+      } else if (searchValue && searchValue.length > 3) { // don't spam them with single character searches
           this.setState({});
 
           Client.searchCdnJs(searchValue, (librariesMatchingSearch) => {
+              // sorting by name here even though the results are already in order of relevance since
+              // that is the requirements of this coding exercise
               this.setState({
-                  librariesMatchingSearch: librariesMatchingSearch.results.slice(0, 50),
+                  librariesMatchingSearch: sortBy(librariesMatchingSearch.results.splice(0, 50), 'name'),
                   librariesMatchingSearchCount: librariesMatchingSearch.total,
               });
           });
