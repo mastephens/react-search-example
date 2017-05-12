@@ -45,7 +45,12 @@ app.get('/api/search', async (req, res) => {
  *  results {Object} - Array of results
  *      {
  *         name {string} Name of the library
- *         latest {string} Url of the latest library
+ *         version {string} Current version of the library
+ *         description {string} Basic description of the library
+ *         homepage {string} If present will list a website for the project
+ *         keywords {Array} Array of strings representing keywords to find the libraries by
+ *         repository {string} http link to the repository
+ *         author {string} The name of the author of the library
  *      }
  * }
  */
